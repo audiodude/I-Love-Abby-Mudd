@@ -1,0 +1,54 @@
+class ColorSet {
+    color background;
+    color badge_1_bg;
+    color badge_1_txt;
+    color badge_2_bg;
+    color badge_2_txt;
+    color deco;
+
+    public ColorSet(color background, color badge_1_bg, color badge_1_txt,
+		    color badge_2_bg, color badge_2_txt, color deco) {
+	this.background = background;
+	this.badge_1_bg = badge_1_bg;
+	this.badge_1_txt = badge_1_txt;
+	this.badge_2_bg = badge_2_bg;
+	this.badge_2_txt = badge_2_txt;
+	this.deco = deco;
+    }
+}
+
+ColorSet[] csets = {
+    new ColorSet(#5DC8CD, #01939A, #FFFFFF, #01939A, #FFFFFF, #FF984D)
+};
+ColorSet cs = csets[int(random(csets.length))];
+
+int h = int(random(200)) + 600;
+int w = int(random(200)) + 800;
+
+void setup() {
+    size(w, h);
+
+    background(cs.background);
+
+    textSize(96);
+    textLeading(96);
+    String txt = "I Love";
+    float font_h = textAscent() + textDescent();
+    float font_w = textWidth(txt);
+    fill(cs.badge_1_bg);
+    noStroke();
+    rect(0, height * 0.25 - font_h * 0.80, font_w, font_h);
+    fill(cs.badge_1_txt);
+    text(txt, 0, height * 0.25);
+
+
+    txt = "Abby Mudd";
+    font_h = textAscent() + textDescent();
+    font_w = textWidth(txt);
+    fill(cs.badge_2_bg);
+    noStroke();
+    rect(width - font_w/1.5, height * 0.75 - font_h, font_w, font_h*2);
+    fill(cs.badge_2_txt);
+    text(txt, width - font_w/1.75, height * 0.75 - font_h, font_w/1.5, 400);
+
+}
