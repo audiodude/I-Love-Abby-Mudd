@@ -1,0 +1,16 @@
+#grid {
+  width: 962px;
+  height: 770px;
+  background-image: url('grid.png');
+  position: relative;
+}
+
+.letter {
+  width: 49px;
+  height: 49px;
+  position: absolute;
+}
+
+#your_letters {
+  position: relative;
+}
